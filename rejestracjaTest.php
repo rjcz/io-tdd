@@ -10,5 +10,14 @@ class rejestracjaTest extends \PHPUnit\Framework\TestCase{
         $result=$rejestracja->isEmailExists($testemail);
         $this->assertTrue($result);
     }
+
+
+    public function testIsEmailValid(){
+        $rejestracja= new App\Rejestracja;
+        $testemail="123@aa";
+        $result=$rejestracja->isEmailValid($testemail);
+        $this->assertTrue($result);
+    }
+
    
 }
