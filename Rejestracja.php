@@ -26,20 +26,38 @@ class Rejestracja{
             return filter_var($email, FILTER_VALIDATE_EMAIL);
         }
 
-        public function isPasswordValid($password){
-            if (strlen($password) >= '6') {
-                if(preg_match("#[0-9]+#", $password)){
-                    if(preg_match("#[A-Z]+#",$password)){
-                        if(preg_match("#[a-z]+#",$password)){
-                            if(!empty($password)) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-                
-            
+        public function doesHave6Char($password){
+            if (strlen($password) >= '6') 
+                return true;
             else return false;
         }
+
+        public function doesHaveNumber($password){
+            if (preg_match("#[0-9]+#", $password)) 
+                return true;
+            else return false;
+        }
+
+        public function doesHaveUppercase($password){
+            if (preg_match("#[A-Z]+#",$password)) 
+                return true;
+            else return false;
+        }
+
+        public function doesHaveLowercase($password){
+            if (preg_match("#[a-z]+#",$password)) 
+                return true;
+            else return false;
+        }
+
+        public function isPasswordValid($password){
+            $r = new Rejestracja;
+            if ($r->doesHave6Char($password) && $r->doesHaveNumber($password) 
+            && $r->doesHaveUppercase($password) && $r->doesHaveLowercase($password) && !empty($password))
+                return true;
+                
+            else return false;
+        }
+
+       
 } 
