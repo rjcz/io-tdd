@@ -2,20 +2,15 @@
 
 namespace App;
 
-
+include_once("Connect.php");
 
 
 
 class Rejestracja{
         public function isEmailExists($email){
-           
-            $user = "root";
-            $pass = "root";
-            $database = "login_sample_db";
-            $server = "localhost";
-            $port = 8889;
+            $con1 = new Connect();
+            $con=$con1->con();
             
-            $con = mysqli_connect($server, $user, $pass, $database,$port );
             $sql = "SELECT * FROM users WHERE email LIKE '$email'";
             $result = mysqli_query($con, $sql);
             
