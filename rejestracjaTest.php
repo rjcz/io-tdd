@@ -1,6 +1,6 @@
 <?php
 
-
+//test jednostkowy 3
 
 class rejestracjaTest extends \PHPUnit\Framework\TestCase{
 
