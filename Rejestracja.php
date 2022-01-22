@@ -21,4 +21,25 @@ class Rejestracja{
                 return false;
             }
         }
-}
+
+        public function isEmailValid($email){
+            return filter_var($email, FILTER_VALIDATE_EMAIL);
+        }
+
+        public function isPasswordValid($password){
+            if (strlen($password) >= '6') {
+                if(preg_match("#[0-9]+#", $password)){
+                    if(preg_match("#[A-Z]+#",$password)){
+                        if(preg_match("#[a-z]+#",$password)){
+                            if(!empty($password)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+                
+            
+            else return false;
+        }
+} 

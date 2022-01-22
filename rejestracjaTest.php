@@ -62,6 +62,14 @@ class rejestracjaTest extends \PHPUnit\Framework\TestCase{
         $result=$rejestracja->isPasswordValid($testpassword);
         $this->assertFalse(!$result);
 
+        $testpassword="123 Abc";
+        $result=$rejestracja->isPasswordValid($testpassword);
+        $this->assertFalse(!$result);
+
+        $testpassword="123.Abc";
+        $result=$rejestracja->isPasswordValid($testpassword);
+        $this->assertFalse(!$result); 
+
         //non valid
         $testpassword="";
         $result=$rejestracja->isPasswordValid($testpassword);
@@ -83,13 +91,7 @@ class rejestracjaTest extends \PHPUnit\Framework\TestCase{
         $result=$rejestracja->isPasswordValid($testpassword);
         $this->assertTrue(!$result);
 
-        $testpassword="123 Abc";
-        $result=$rejestracja->isPasswordValid($testpassword);
-        $this->assertTrue(!$result);
 
-        $testpassword="123.Abc";
-        $result=$rejestracja->isPasswordValid($testpassword);
-        $this->assertTrue(!$result);
     }
 
    
