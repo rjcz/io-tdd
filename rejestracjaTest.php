@@ -8,7 +8,7 @@ class rejestracjaTest extends \PHPUnit\Framework\TestCase{
         $rejestracja= new App\Rejestracja;
         $testemail="123@aa";
         $result=$rejestracja->isEmailExists($testemail);
-        this->assertTrue($result);
+        $this->assertTrue($result);
     }
    
 }
